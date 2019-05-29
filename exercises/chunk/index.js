@@ -11,21 +11,14 @@
 function chunk(array, size) {
 	var chunked=[];
 	var chunk=[];
-	for(var i = 0; i<array.length; i++){
-		chunk=[];
-		if((i+1)%size==0){
-			chunk.push(array[i]);
-			chunked.push(chunk);
-		}
-		else{
-		
-		chunk.push(array[i]);
-	}
-}
-if(array.length%size!=0){
-	chunked.push(chunk);
-}
-	return chunked;
+    var index = 0;
+
+  while (index < array.length) {
+    chunked.push(array.slice(index, index + size));
+    index += size;
+  }
+
+  return chunked;
 }
 
 module.exports = chunk;
